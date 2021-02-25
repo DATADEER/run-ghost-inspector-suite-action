@@ -9,6 +9,11 @@ inputs:
     description: 'ghost inspector suiteID'
     required: true
     default: 'UNDEFINED'
+  GHOST_INSPECTOR_API_KEY:
+    description: 'ghost inspector API Key'
+    required: true
+    default: 'UNDEFINED'
+
 runs:
   using: 'node12'
   main: 'index.js'
