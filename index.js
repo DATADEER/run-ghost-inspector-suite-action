@@ -2,10 +2,10 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const axios = require('axios');
 
-const GHOST_INSPECTOR_API_KEY = process.env.GHOST_INSPECTOR_API_KEY
+const GHOST_INSPECTOR_API_KEY = process.env.GHOST_INSPECTOR_API_KEY;
 
 async function getTestResults(suiteID,startURL){
-    const response = await axios.get(`https://api.ghostinspector.com/v1/suites/${GHOST_INSPECTOR_SUITE_ID}/execute/?apiKey=${GHOST_INSPECTOR_API_KEY}&startUrl=${START_URL}`)
+    const response = await axios.get(`https://api.ghostinspector.com/v1/suites/${suiteID}/execute/?apiKey=${GHOST_INSPECTOR_API_KEY}&startUrl=${startURL}`)
     console.log(response);
     console.log(response.data);
     // TODO: return only test results
