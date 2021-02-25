@@ -22,7 +22,7 @@ try {
     const startURL = core.getInput('startURL');
     const suiteID = core.getInput('suiteID');
 
-    const suiteResult = getSuiteResult(suiteID,startURL);
+    const suiteResult = await getSuiteResult(suiteID,startURL);
 
     if(areAllTestsSuccessful(suiteResult)){
         core.setOutput("SUCCESS","All tests successful");
