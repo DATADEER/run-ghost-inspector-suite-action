@@ -6,7 +6,8 @@ const axios = require('axios');
     const GHOST_INSPECTOR_API_KEY = core.getInput('GHOST_INSPECTOR_API_KEY');
 
     async function getSuiteResult(suiteID,startURL){
-        const response = await axios.get(`https://api.ghostinspector.com/v1/suites/${suiteID}/execute/?apiKey=${GHOST_INSPECTOR_API_KEY}&startUrl=${startURL}`)
+        const requestConfig = {timeout: parseInt(core.getInput('startURL') || 300000)} //default timeout of 5min
+        const response = await axios.get(`https://api.ghostinspector.com/v1/suites/${suiteID}/execute/?apiKey=${GHOST_INSPECTOR_API_KEY}&startUrl=${startURL}`,requestConfig)
         console.log("REQUEST RESPONSE", response);
         console.log("RESULTS", response.data.data);
         return response.data.data;
@@ -26,9 +27,9 @@ const axios = require('axios');
         const suiteResult = await getSuiteResult(suiteID,startURL);
 
         if(areAllTestsSuccessful(suiteResult)){
-            core.setOutput("SUCCESS","All tests successful");
+            core.setOutput("SUCCESS","All test were successful (including screenshot comparison)");
         }else {
-            core.setFailed(`At least one test failed ${suiteResult}`);
+            core.setFailed(`At least one test failed. Check out https://app.ghostinspector.com/suites/${suiteID} for more details`);
         }
     } catch (error) {
         core.setFailed(error.message);

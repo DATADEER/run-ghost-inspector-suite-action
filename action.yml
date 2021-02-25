@@ -9,6 +9,10 @@ inputs:
     description: 'ghost inspector suiteID'
     required: true
     default: 'UNDEFINED'
+  maxTimeout:
+    description: 'in milliseconds. how long to wait for tests results before failing'
+    required: false
+    default: "300000"
   GHOST_INSPECTOR_API_KEY:
     description: 'ghost inspector API Key'
     required: true
