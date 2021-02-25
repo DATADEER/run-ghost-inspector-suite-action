@@ -8,8 +8,6 @@ const axios = require('axios');
     async function getSuiteResult(suiteID,startURL){
         const requestConfig = {timeout: parseInt(core.getInput('startURL') || 300000)} //default timeout of 5min
         const response = await axios.get(`https://api.ghostinspector.com/v1/suites/${suiteID}/execute/?apiKey=${GHOST_INSPECTOR_API_KEY}&startUrl=${startURL}`,requestConfig)
-        console.log("REQUEST RESPONSE", response);
-        console.log("RESULTS", response.data.data);
         return response.data.data;
     }
 
