@@ -1,5 +1,8 @@
 name: 'run-ghost-inspector-suite'
 description: 'Runs a single ghost inspector suite and resolves based on test results (including screenshots)'
+branding:
+  icon: 'check'
+  color: 'green'
 inputs:
   startURL:
     description: 'optional startURL for the test suite'

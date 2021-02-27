@@ -31,7 +31,7 @@ This Action doesn't have any output yet.
 ## Example usage
 
 ```yml
-uses: DATADEER/run-ghost-inspector-suite-action@v0.53
+uses: DATADEER/run-ghost-inspector-suite-action@v1.1
 with:
   suiteID: "XXXXXXXXXXXXXXXXXXXXXXX" # don't import from secrets. needs to visible in logs
   startURL: "https://google.com"
